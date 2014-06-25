@@ -25,7 +25,7 @@ var app = express();
 
 app.use(cookieParser(process.env.SECRETAUTH));
 app.use(bodyParser());
-app.use(session({key: process.env.SESSIONKEY, cookie: {maxAge: 60000 }}));
+app.use(session({secret: process.env.SESSIONKEY, cookie: {maxAge: 60000 }}));
 app.use(methodOverride());
 
 app.use("/css" , express.static(__dirname + '/static/css'));
