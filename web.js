@@ -32,6 +32,7 @@ app.use("/css" , express.static(__dirname + '/static/css'));
 app.use("/lib", express.static(__dirname + '/bower_components'))
 app.use("/js" , express.static(__dirname + '/static/js'));
 app.use("/fonts", express.static(__dirname + '/static/fonts'));
+app.use("/img", express.static(__dirname + '/static/img'));
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -45,6 +46,16 @@ app.get('/', function(req, res) {
   res.contentType('text/html');
   res.sendfile(__dirname + '/views/index.html');
 });
+
+app.get('/events', function(req, res) {
+  res.contentType('text/html');
+  res.render('events');
+});
+
+app.get('/register', function(req, res) {
+  res.contentType('text/html');
+  res.render('register');
+})
 
 // load routes
 // require('./app/routes.js')(app, passport);
