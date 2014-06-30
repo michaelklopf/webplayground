@@ -55,7 +55,12 @@ app.get('/events', function(req, res) {
 app.get('/register', function(req, res) {
   res.contentType('text/html');
   res.render('register');
-})
+});
+
+app.get('/react', function(req, res) {
+  res.contentType('text/html');
+  res.render('reacttest');
+});
 
 // load routes
 // require('./app/routes.js')(app, passport);

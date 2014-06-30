@@ -1,3 +1,5 @@
 Playground repository.
 
-First task - bower all the way.
+General : Bower implemented
+
+Register : Playing around with requirejs
