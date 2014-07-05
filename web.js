@@ -16,10 +16,6 @@ var env         = require('node-env-file');
 // load env vars
 env(__dirname + '/.env');
 
-// load config and create database
-// var database    = require('./config/database');
-// mongoose.connect(database.url);
-
 // create and configure express app
 var app = express();
 
@@ -33,6 +29,9 @@ app.use("/lib", express.static(__dirname + '/bower_components'))
 app.use("/js" , express.static(__dirname + '/static/js'));
 app.use("/fonts", express.static(__dirname + '/static/fonts'));
 app.use("/img", express.static(__dirname + '/static/img'));
+app.use("/json", express.static(__dirname + '/static/json'));
+app.use("/components", express.static(__dirname + '/static/components'));
+app.use("/mycomponents", express.static(__dirname + '/static/mycomponents'));
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -62,8 +61,10 @@ app.get('/react', function(req, res) {
   res.render('reacttest');
 });
 
-// load routes
-// require('./app/routes.js')(app, passport);
+app.get('/polymer', function(req, res) {
+  res.contentType('text/html');
+  res.sendfile(__dirname + '/views/polymer.html');
+});
 
 // For seeing changes without stoping, starting the server, install nodemon globally npm install -g nodemon. Start your server with nodemon server.js
 http.createServer(app).listen(app.get('port'), function() {
