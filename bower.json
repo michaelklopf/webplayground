@@ -29,6 +29,7 @@
     "fontawesome": "~4.1.0",
     "requirejs": "~2.1.14",
     "react": "~0.10.0",
-    "polymer": "~0.3.3"
+    "polymer": "~0.3.3",
+    "marionette": "~2.1.0"
   }
 }
