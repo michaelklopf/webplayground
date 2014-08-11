@@ -68,7 +68,12 @@ app.get('/polymer', function(req, res) {
 
 app.get('/marionette', function(req, res) {
   res.contentType('text/html');
-  res.render('marionette');
+  res.sendfile(__dirname + '/views/marionette.html');
+});
+
+app.get('/listcreator', function(req, res) {
+  res.contentType('text/html');
+  res.render('listCreator');
 });
 
 // For seeing changes without stoping, starting the server, install nodemon globally npm install -g nodemon. Start your server with nodemon server.js
