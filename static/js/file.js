@@ -15,7 +15,7 @@ var fileLoader = (function (myApp) {
 
             reader.onload = function (e) {
                 fileContent = reader.result;
-                myApp.trigger("print:list");
+                myApp.trigger("show:list");
             };
 
             reader.readAsText(file, "UTF-8");
@@ -37,11 +37,11 @@ var myListManager = (function (fileLoader, listCreator, myApp) {
 
     fn = {
         initialize : function () {
-            myApp.bind("print:list", this.showList, this);
+            myApp.bind("show:list", this.showList, this);
         },
 
         showList : function () {
-            myApp.trigger("process:list", fileLoader.getFileContent());
+            myApp.trigger("draw:list", fileLoader.getFileContent());
         }
     };
 
@@ -97,7 +97,7 @@ var listCreator = (function (myApp) {
 
     fn = {
         initialize : function () {
-            myApp.bind("process:list", this.drawList, this);
+            myApp.bind("draw:list", this.drawList, this);
         },
 
         drawList : function (rawdata) {
