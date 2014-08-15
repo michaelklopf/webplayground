@@ -81,6 +81,15 @@ app.get('/morereact', function(req, res) {
   res.sendfile(__dirname + '/views/morereact.html');
 });
 
+app.get('/comments', function(req, res) {
+  var data = [
+    {author: "Pete Hunt", text: "This is one huge big unprecedented comment"},
+    {author: "Jordan Walke", text: "This is *another* comment"}
+  ];
+  res.contentType('json');
+  res.send(data);
+});
+
 // For seeing changes without stoping, starting the server, install nodemon globally npm install -g nodemon. Start your server with nodemon server.js
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Listening on port ' + app.get('port'));
