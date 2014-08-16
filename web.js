@@ -12,6 +12,7 @@ var bodyParser    = require('body-parser');
 var methodOverride = require('method-override');
 var session     = require('express-session');
 var env         = require('node-env-file');
+var data        = [];
 
 // load env vars
 env(__dirname + '/.env');
@@ -82,10 +83,18 @@ app.get('/morereact', function(req, res) {
 });
 
 app.get('/comments', function(req, res) {
-  var data = [
-    {author: "Pete Hunt", text: "This is one huge big unprecedented comment"},
-    {author: "Jordan Walke", text: "This is *another* comment"}
-  ];
+  if (data.length === 0) {
+    data = [
+      {author: "Pete Hunt", text: "This is one huge big unprecedented comment"},
+      {author: "Jordan Walke", text: "This is *another* comment"}
+    ];
+  }
+  res.contentType('json');
+  res.send(data);
+});
+
+app.post('/comments', function(req, res) {
+  data.push(req.body);
   res.contentType('json');
   res.send(data);
 });
