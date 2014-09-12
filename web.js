@@ -104,6 +104,11 @@ app.get('/backbonereact', function(req, res) {
   res.sendfile(__dirname + '/views/backbonereact.html');
 });
 
+app.get('/flux', function(req, res) {
+  res.contentType('text/html');
+  res.sendfile(__dirname + '/views/flux.html');
+});
+
 // For seeing changes without stoping, starting the server, install nodemon globally npm install -g nodemon. Start your server with nodemon server.js
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Listening on port ' + app.get('port'));
