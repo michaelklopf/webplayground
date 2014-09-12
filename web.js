@@ -28,6 +28,7 @@ app.use(methodOverride());
 app.use("/css" , express.static(__dirname + '/static/css'));
 app.use("/lib", express.static(__dirname + '/bower_components'))
 app.use("/js" , express.static(__dirname + '/static/js'));
+app.use("/distjs" , express.static(__dirname + '/dist/js'));
 app.use("/fonts", express.static(__dirname + '/static/fonts'));
 app.use("/img", express.static(__dirname + '/static/img'));
 app.use("/json", express.static(__dirname + '/static/json'));
@@ -106,7 +107,7 @@ app.get('/backbonereact', function(req, res) {
 
 app.get('/flux', function(req, res) {
   res.contentType('text/html');
-  res.sendfile(__dirname + '/views/flux.html');
+  res.sendfile(__dirname + '/dist/flux.html');
 });
 
 // For seeing changes without stoping, starting the server, install nodemon globally npm install -g nodemon. Start your server with nodemon server.js

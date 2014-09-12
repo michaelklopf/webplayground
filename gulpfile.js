@@ -5,9 +5,9 @@ var using = require('gulp-using');
 
 gulp.task('browserify', function() {
     gulp.src('static/js/main.js')
+      .pipe(using())
       .pipe(browserify({transform: 'reactify'}))
       .pipe(concat('main.js'))
-      .pipe(using())
       .pipe(gulp.dest('./dist/js'));
 });
 
