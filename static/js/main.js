@@ -3,21 +3,9 @@
 */
 var React = require('react');
 var AppActions = require('./actions/app-actions.js');
-
-var ApplicationComponent = React.createClass({
-  handleClick: function() {
-    AppActions.addItem('this is an item');
-  },
-  render:function(){
-    return (
-      <div>
-        <h1 onClick={this.handleClick}>Flux app headline.</h1>
-      </div>
-    );
-  }
-});
+var App = require('./components/app.js');
 
 React.renderComponent(
-  <ApplicationComponent />,
+  <App />,
   document.getElementById('main')
 );

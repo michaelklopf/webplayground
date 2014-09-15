@@ -20,5 +20,5 @@ gulp.task('copy', function() {
 gulp.task('default',['browserify', 'copy']);
 
 gulp.task('watch', function() {
-    gulp.watch('static/js/*.*', ['default']);
+    gulp.watch('static/**/*.*', ['default']);
 });
